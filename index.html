@@ -1,0 +1,782 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JustBern Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+<!-- Tailwind Custom Animation -->
+<style>
+    @keyframes fadeIn {
+        0% {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        100% {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    .animate-fadeIn {
+        animation: fadeIn 1s ease-in-out forwards;
+    }
+
+    .delay-100 {
+        animation-delay: 0.3s;
+    }
+
+    .delay-200 {
+        animation-delay: 0.6s;
+    }
+</style>
+
+<body class="bg-gray-50">
+    <!-- Navbar Section -->
+    <header class="sticky top-0 z-50">
+        <nav
+            class="bg-gradient-to-r from-amber-900 via-stone-900 to-black backdrop-blur-md bg-opacity-80 py-4 shadow-lg">
+            <div class="container mx-auto px-6 flex justify-between items-center">
+                <!-- Brand -->
+                <a href="#" class="text-3xl font-bold text-white tracking-wide">JustBern</a>
+                <!-- Desktop Nav Links -->
+                <ul class="hidden md:flex space-x-8 text-gray-200 font-semibold">
+                    <li><a href="#home" class="hover:text-amber-400 transition duration-300">Home</a></li>
+                    <li><a href="#skills" class="hover:text-amber-400 transition duration-300">Skills</a></li>
+                    <li><a href="#about" class="hover:text-amber-400 transition duration-300">About</a></li>
+                    <li><a href="#work" class="hover:text-amber-400 transition duration-300">Work</a></li>
+                    <li><a href="#contact" class="hover:text-amber-400 transition duration-300">Contact</a></li>
+                </ul>
+                <!-- Hire Me Button -->
+                <a href="#hire"
+                    class="hidden md:block py-2 px-6 bg-amber-700 text-white rounded-lg hover:bg-amber-600 transition duration-300 shadow-md">Hire
+                    Me</a>
+                <!-- Mobile Menu Toggle Button -->
+                <button id="menu-toggle" class="md:hidden text-white">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+            <!-- Mobile Menu -->
+            <div id="mobile-menu"
+                class="md:hidden hidden bg-gradient-to-b from-amber-900 via-stone-900 to-black bg-opacity-90 backdrop-blur-md">
+                <ul class="space-y-4 p-6 text-gray-200 text-center">
+                    <li><a href="#home" class="block py-2 hover:text-amber-400">Home</a></li>
+                    <li><a href="#skills" class="block py-2 hover:text-amber-400">Skills</a></li>
+                    <li><a href="#about" class="block py-2 hover:text-amber-400">About</a></li>
+                    <li><a href="#work" class="block py-2 hover:text-amber-400">Work</a></li>
+                    <li><a href="#contact" class="block py-2 hover:text-amber-400">Contact</a></li>
+                    <li>
+                        <a href="#hire"
+                            class="block py-2 mt-4 bg-amber-700 rounded-lg hover:bg-amber-600 transition duration-300">Hire
+                            Me</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+
+    <!-- HOME SECTION -->
+
+    <section id="home" class="w-full h-screen bg-black text-white flex items-center justify-center px-6 pt-20">
+        <div class="flex flex-col items-center text-center">
+            <!-- Image -->
+            <div class="mb-8">
+                <img src="profile.png" alt="Bernabe Sesing"
+                    class="w-48 h-48 sm:w-56 sm:h-56 lg:w-64 lg:h-64 rounded-full object-cover shadow-2xl border-4 border-[#d6a66c] transition duration-300 hover:scale-105 hover:shadow-[0_0_20px_#d6a66c]">
+            </div>
+
+            <!-- Text Content -->
+            <div>
+                <p class="text-xl font-mono text-gray-300">Hi! I am,</p>
+                <h1 class="text-4xl sm:text-5xl lg:text-7xl font-mono font-bold mt-2 text-[#d6a66c]">Bernabe Sesing</h1>
+                <h2 class="lg:text-xl sm:text-3xl mt-3 font-mono font-bold text-gray-300">Front-end Web Developer/ UI &
+                    UX Design</h2>
+                <p class="text-base sm:text-lg mt-5 font-mono text-gray-400 max-w-xl mx-auto">
+                    I am an aspiring web developer with strong skills and a passion for building interactive, modern
+                    websites.
+                    <br> Let's bring your ideas to life.
+                </p>
+
+                <!-- Button -->
+                <a href="your-cv-link.pdf"
+                    class="inline-block mt-8 px-8 py-3 border-2 border-[#d6a66c] text-[#d6a66c] rounded-lg hover:bg-[#d6a66c] hover:text-black font-semibold transition duration-300">
+                    Download My CV
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills" class="max-w-8xl mx-auto px-5 md:px-10 lg:px-20 py-20 bg-black text-white">
+        <h1 class="text-center font-bold text-3xl font-mono mb-14 text-[#d6a66c]">
+            <span class="text-white">|</span> Skills
+        </h1>
+
+        <div class="flex flex-wrap justify-center gap-10">
+
+            <!-- SKILL CARD -->
+            <div
+                class="skill-card relative group bg-gradient-to-b from-[#1a1a1a] to-[#2e2e2e] shadow-lg rounded-2xl p-8 w-full md:w-1/2 lg:w-1/5 text-center border border-[#3a2d1f] transition-all duration-500 hover:scale-110 hover:shadow-[#d6a66c]/40">
+
+                <i class="fa-brands fa-html5 text-7xl text-[#d6a66c] drop-shadow-[0_0_10px_#d6a66c]"></i>
+                <h1 class="font-semibold text-xl mt-4 text-white">HTML</h1>
+
+                <!-- Circle -->
+                <div class="relative flex justify-center mt-10">
+                    <svg class="w-24 h-24">
+                        <circle cx="48" cy="48" r="40" stroke-width="8" class="text-gray-700" fill="transparent" />
+                        <circle cx="48" cy="48" r="40" stroke-width="8" class="text-[#d6a66c] skill-progress"
+                            fill="transparent" stroke-dasharray="251.2" stroke-dashoffset="251.2" stroke-linecap="round"
+                            style="transform: rotate(-90deg); transform-origin: center;" data-percent="95" />
+                    </svg>
+
+                    <span
+                        class="absolute inset-0 flex items-center justify-center text-xl font-bold text-[#d6a66c] skill-counter">0%</span>
+
+                    <!-- Tooltip -->
+                    <span
+                        class="absolute -bottom-10 opacity-0 group-hover:opacity-100 transition text-xs border border-[#3a2d1f] bg-black px-3 py-1 rounded-lg text-[#d6a66c]">
+                        Builds website structure
+                    </span>
+                </div>
+            </div>
+            <!-- TAILWIND -->
+            <div
+                class="skill-card relative group bg-gradient-to-b from-[#1a1a1a] to-[#2e2e2e] shadow-lg rounded-2xl p-8 w-full md:w-1/2 lg:w-1/5 text-center border border-[#3a2d1f] transition-all duration-500 hover:scale-110 hover:shadow-[#d6a66c]/40">
+
+                <i class="fa-solid fa-wind text-7xl text-[#d6a66c] drop-shadow-[0_0_10px_#d6a66c]"></i>
+                <h1 class="font-semibold text-xl mt-4 text-white">Tailwind</h1>
+
+                <div class="relative flex justify-center mt-10">
+                    <svg class="w-24 h-24">
+                        <circle cx="48" cy="48" r="40" stroke-width="8" class="text-gray-700" fill="transparent" />
+                        <circle cx="48" cy="48" r="40" stroke-width="8" class="text-[#d6a66c] skill-progress"
+                            fill="transparent" stroke-dasharray="251.2" stroke-dashoffset="251.2" stroke-linecap="round"
+                            style="transform: rotate(-90deg); transform-origin: center;" data-percent="97" />
+                    </svg>
+
+                    <span
+                        class="absolute inset-0 flex items-center justify-center text-xl font-bold text-[#d6a66c] skill-counter">0%</span>
+
+                    <span
+                        class="absolute -bottom-10 opacity-0 group-hover:opacity-100 transition text-xs border border-[#3a2d1f] bg-black px-3 py-1 rounded-lg text-[#d6a66c]">
+                        Utility-first styling
+                    </span>
+                </div>
+            </div>
+
+            <!-- CSS -->
+            <div
+                class="skill-card relative group bg-gradient-to-b from-[#1a1a1a] to-[#2e2e2e] shadow-lg rounded-2xl p-8 w-full md:w-1/2 lg:w-1/5 text-center border border-[#3a2d1f] transition-all duration-500 hover:scale-110 hover:shadow-[#d6a66c]/40">
+
+                <i class="fa-brands fa-css3-alt text-7xl text-[#c8b48c] drop-shadow-[0_0_10px_#c8b48c]"></i>
+                <h1 class="font-semibold text-xl mt-4 text-white">CSS</h1>
+
+                <div class="relative flex justify-center mt-10">
+                    <svg class="w-24 h-24">
+                        <circle cx="48" cy="48" r="40" stroke-width="8" class="text-gray-700" fill="transparent" />
+                        <circle cx="48" cy="48" r="40" stroke-width="8" class="text-[#c8b48c] skill-progress"
+                            fill="transparent" stroke-dasharray="251.2" stroke-dashoffset="251.2" stroke-linecap="round"
+                            style="transform: rotate(-90deg); transform-origin: center;" data-percent="95" />
+                    </svg>
+
+                    <span
+                        class="absolute inset-0 flex items-center justify-center text-xl font-bold text-[#c8b48c] skill-counter">0%</span>
+
+                    <span
+                        class="absolute -bottom-10 opacity-0 group-hover:opacity-100 transition text-xs border border-[#3a2d1f] bg-black px-3 py-1 rounded-lg text-[#c8b48c]">
+                        Styles & animations
+                    </span>
+                </div>
+            </div><!-- BOOTSTRAP -->
+            <div
+                class="skill-card relative group bg-gradient-to-b from-[#1a1a1a] to-[#2e2e2e] shadow-lg rounded-2xl p-8 w-full md:w-1/2 lg:w-1/5 text-center border border-[#3a2d1f] transition-all duration-500 hover:scale-110 hover:shadow-[#d6a66c]/40">
+
+                <i class="fa-brands fa-bootstrap text-7xl text-[#b8916e] drop-shadow-[0_0_10px_#b8916e]"></i>
+                <h1 class="font-semibold text-xl mt-4 text-white">Bootstrap</h1>
+
+                <div class="relative flex justify-center mt-10">
+                    <svg class="w-24 h-24">
+                        <circle cx="48" cy="48" r="40" stroke-width="8" class="text-gray-700" fill="transparent" />
+                        <circle cx="48" cy="48" r="40" stroke-width="8" class="text-[#b8916e] skill-progress"
+                            fill="transparent" stroke-dasharray="251.2" stroke-dashoffset="251.2" stroke-linecap="round"
+                            style="transform: rotate(-90deg); transform-origin: center;" data-percent="92" />
+                    </svg>
+
+                    <span
+                        class="absolute inset-0 flex items-center justify-center text-xl font-bold text-[#b8916e] skill-counter">0%</span>
+
+                    <span
+                        class="absolute -bottom-10 opacity-0 group-hover:opacity-100 transition text-xs border border-[#3a2d1f] bg-black px-3 py-1 rounded-lg text-[#b8916e]">
+                        Responsive layouts
+                    </span>
+                </div>
+            </div>
+
+
+
+            <!-- JAVASCRIPT -->
+            <div
+                class="skill-card relative group bg-gradient-to-b from-[#1a1a1a] to-[#2e2e2e] shadow-lg rounded-2xl p-8 w-full md:w-1/2 lg:w-1/5 text-center border border-[#3a2d1f] transition-all duration-500 hover:scale-110 hover:shadow-[#d6a66c]/40">
+
+                <i class="fa-brands fa-js text-7xl text-[#a9825a] drop-shadow-[0_0_10px_#a9825a]"></i>
+                <h1 class="font-semibold text-xl mt-4 text-white">JavaScript</h1>
+
+                <div class="relative flex justify-center mt-10">
+                    <svg class="w-24 h-24">
+                        <circle cx="48" cy="48" r="40" stroke-width="8" class="text-gray-700" fill="transparent" />
+                        <circle cx="48" cy="48" r="40" stroke-width="8" class="text-[#a9825a] skill-progress"
+                            fill="transparent" stroke-dasharray="251.2" stroke-dashoffset="251.2" stroke-linecap="round"
+                            style="transform: rotate(-90deg); transform-origin: center;" data-percent="78" />
+                    </svg>
+
+                    <span
+                        class="absolute inset-0 flex items-center justify-center text-xl font-bold text-[#a9825a] skill-counter">0%</span>
+
+                    <span
+                        class="absolute -bottom-10 opacity-0 group-hover:opacity-100 transition text-xs border border-[#3a2d1f] bg-black px-3 py-1 rounded-lg text-[#a9825a]">
+                        Logic & interactivity
+                    </span>
+                </div>
+            </div>
+
+            <!-- REACT -->
+            <div
+                class="skill-card relative group bg-gradient-to-b from-[#1a1a1a] to-[#2e2e2e] shadow-lg rounded-2xl p-8 w-full md:w-1/2 lg:w-1/5 text-center border border-[#3a2d1f] transition-all duration-500 hover:scale-110 hover:shadow-[#d6a66c]/40">
+
+                <i class="fa-brands fa-react text-7xl text-[#61dafb] drop-shadow-[0_0_10px_#61dafb]"></i>
+                <h1 class="font-semibold text-xl mt-4 text-white">React</h1>
+
+                <div class="relative flex justify-center mt-10">
+                    <svg class="w-24 h-24">
+                        <circle cx="48" cy="48" r="40" stroke-width="8" class="text-gray-700" fill="transparent" />
+                        <circle cx="48" cy="48" r="40" stroke-width="8" class="text-[#61dafb] skill-progress"
+                            fill="transparent" stroke-dasharray="251.2" stroke-dashoffset="251.2" stroke-linecap="round"
+                            style="transform: rotate(-90deg); transform-origin: center;" data-percent="85" />
+                    </svg>
+
+                    <span
+                        class="absolute inset-0 flex items-center justify-center text-xl font-bold text-[#61dafb] skill-counter">0%</span>
+
+                    <span
+                        class="absolute -bottom-10 opacity-0 group-hover:opacity-100 transition text-xs border border-[#3a2d1f] bg-black px-3 py-1 rounded-lg text-[#61dafb]">
+                        SPA & components
+                    </span>
+                </div>
+            </div>
+
+            <!-- VUE -->
+            <div
+                class="skill-card relative group bg-gradient-to-b from-[#1a1a1a] to-[#2e2e2e] shadow-lg rounded-2xl p-8 w-full md:w-1/2 lg:w-1/5 text-center border border-[#3a2d1f] transition-all duration-500 hover:scale-110 hover:shadow-[#d6a66c]/40">
+
+                <i class="fa-brands fa-vuejs text-7xl text-[#42b883] drop-shadow-[0_0_10px_#42b883]"></i>
+                <h1 class="font-semibold text-xl mt-4 text-white">Vue</h1>
+
+                <div class="relative flex justify-center mt-10">
+                    <svg class="w-24 h-24">
+                        <circle cx="48" cy="48" r="40" stroke-width="8" class="text-gray-700" fill="transparent" />
+                        <circle cx="48" cy="48" r="40" stroke-width="8" class="text-[#42b883] skill-progress"
+                            fill="transparent" stroke-dasharray="251.2" stroke-dashoffset="251.2" stroke-linecap="round"
+                            style="transform: rotate(-90deg); transform-origin: center;" data-percent="80" />
+                    </svg>
+
+                    <span
+                        class="absolute inset-0 flex items-center justify-center text-xl font-bold text-[#42b883] skill-counter">0%</span>
+
+                    <span
+                        class="absolute -bottom-10 opacity-0 group-hover:opacity-100 transition text-xs border border-[#3a2d1f] bg-black px-3 py-1 rounded-lg text-[#42b883]">
+                        Reactive UI
+                    </span>
+                </div>
+            </div>
+
+            <!-- FIGMA -->
+            <div
+                class="skill-card relative group bg-gradient-to-b from-[#1a1a1a] to-[#2e2e2e] shadow-lg rounded-2xl p-8 w-full md:w-1/2 lg:w-1/5 text-center border border-[#3a2d1f] transition-all duration-500 hover:scale-110 hover:shadow-[#d6a66c]/40">
+
+                <i class="fa-brands fa-figma text-7xl text-[#f24e1e] drop-shadow-[0_0_10px_#f24e1e]"></i>
+                <h1 class="font-semibold text-xl mt-4 text-white">Figma</h1>
+
+                <div class="relative flex justify-center mt-10">
+                    <svg class="w-24 h-24">
+                        <circle cx="48" cy="48" r="40" stroke-width="8" class="text-gray-700" fill="transparent" />
+                        <circle cx="48" cy="48" r="40" stroke-width="8" class="text-[#f24e1e] skill-progress"
+                            fill="transparent" stroke-dasharray="251.2" stroke-dashoffset="251.2" stroke-linecap="round"
+                            style="transform: rotate(-90deg); transform-origin: center;" data-percent="88" />
+                    </svg>
+
+                    <span
+                        class="absolute inset-0 flex items-center justify-center text-xl font-bold text-[#f24e1e] skill-counter">0%</span>
+
+                    <span
+                        class="absolute -bottom-10 opacity-0 group-hover:opacity-100 transition text-xs border border-[#3a2d1f] bg-black px-3 py-1 rounded-lg text-[#f24e1e]">
+                        UI/UX design
+                    </span>
+                </div>
+            </div>
+
+        </div>
+    </section>
+    <!-- ABOUT SECTION -->
+    <section id="about"
+        class="relative max-w-8xl mx-auto mt-20 bg-black text-white px-5 md:px-10 lg:px-20 py-24 overflow-hidden">
+
+        <!-- Animated Glow Background -->
+        <div class="absolute inset-0 pointer-events-none opacity-20">
+            <div
+                class="w-full h-full bg-[radial-gradient(circle_at_top,rgba(139,69,19,0.25),transparent_60%)] animate-pulse">
+            </div>
+        </div>
+
+        <h1 class="text-center font-bold text-4xl font-mono mb-16 tracking-widest text-amber-600 relative z-10">
+            <span class="text-white">|</span> About
+        </h1>
+
+        <!-- Cards -->
+        <div class="relative z-10 flex flex-wrap justify-center gap-10">
+
+            <!-- DEGREE -->
+            <div
+                class="group bg-gradient-to-b from-[#1a1a1a] via-[#2b2b2b] to-black shadow-lg rounded-2xl p-8 w-full md:w-1/2 lg:w-1/5 text-center border border-[#3a2d1f] hover:border-amber-700/80 transition-all duration-500 hover:shadow-amber-600/30 hover:scale-105">
+
+                <i
+                    class="fa-solid fa-graduation-cap text-6xl text-amber-600 drop-shadow-[0_0_8px_#b45309] transition-transform duration-300 group-hover:scale-110 group-hover:rotate-3"></i>
+
+                <div
+                    class="my-6 border-t border-dashed border-gray-700 w-4/5 mx-auto group-hover:border-amber-600 transition-colors duration-500">
+                </div>
+
+                <h2
+                    class="font-semibold text-xl mb-2 tracking-wide text-gray-100 group-hover:text-amber-400 transition-colors duration-300">
+                    Degree
+                </h2>
+                <p class="font-thin text-gray-300 leading-relaxed">
+                    Bachelor of Public Administration (Governance)
+                </p>
+            </div>
+
+            <!-- LOCATION -->
+            <div
+                class="group bg-gradient-to-b from-[#1a1a1a] via-[#2b2b2b] to-black shadow-lg rounded-2xl p-8 w-full md:w-1/2 lg:w-1/5 text-center border border-[#3a2d1f] hover:border-[#d6a66c]/80 transition-all duration-500 hover:shadow-[#d6a66c]/30 hover:scale-105">
+
+                <i
+                    class="fa-solid fa-location-dot text-6xl text-[#d6a66c] drop-shadow-[0_0_8px_#a16207] transition-transform duration-300 group-hover:scale-110 group-hover:-rotate-3"></i>
+
+                <div
+                    class="my-6 border-t border-dashed border-gray-700 w-4/5 mx-auto group-hover:border-[#d6a66c] transition-colors duration-500">
+                </div>
+
+                <h2
+                    class="font-semibold text-xl mb-2 tracking-wide text-gray-100 group-hover:text-[#f5deb3] transition-colors duration-300">
+                    Location
+                </h2>
+                <p class="font-thin text-gray-300 leading-relaxed">
+                    Poruk 9 Mangga, Pandulian, Mabantao,<br>
+                    Kapalong, Davao Del Norte<br>
+                    Zone 8113
+                </p>
+            </div>
+
+            <!-- HOBBIES -->
+            <div
+                class="group bg-gradient-to-b from-[#1a1a1a] via-[#2b2b2b] to-black shadow-lg rounded-2xl p-8 w-full md:w-1/2 lg:w-1/5 text-center border border-[#3a2d1f] hover:border-[#b8916e]/80 transition-all duration-500 hover:shadow-[#b8916e]/30 hover:scale-105">
+
+                <i
+                    class="fa-solid fa-pen-to-square text-6xl text-[#b8916e] drop-shadow-[0_0_8px_#b45309] transition-transform duration-300 group-hover:scale-110 group-hover:rotate-3"></i>
+
+                <div
+                    class="my-6 border-t border-dashed border-gray-700 w-4/5 mx-auto group-hover:border-[#b8916e] transition-colors duration-500">
+                </div>
+
+                <h2
+                    class="font-semibold text-xl mb-2 tracking-wide text-gray-100 group-hover:text-[#e3caa5] transition-colors duration-300">
+                    Hobbies
+                </h2>
+                <p class="font-thin text-gray-300 leading-relaxed">
+                    Basketball, Cooking, Nature Trip
+                </p>
+            </div>
+
+            <!-- WORK -->
+            <div
+                class="group bg-gradient-to-b from-[#1a1a1a] via-[#2b2b2b] to-black shadow-lg rounded-2xl p-8 w-full md:w-1/2 lg:w-1/5 text-center border border-[#3a2d1f] hover:border-[#c5a572]/80 transition-all duration-500 hover:shadow-[#c5a572]/30 hover:scale-105">
+
+                <i
+                    class="fa-solid fa-briefcase text-6xl text-[#c5a572] drop-shadow-[0_0_8px_#92400e] transition-transform duration-300 group-hover:scale-110 group-hover:-rotate-3"></i>
+
+                <div
+                    class="my-6 border-t border-dashed border-gray-700 w-4/5 mx-auto group-hover:border-[#c5a572] transition-colors duration-500">
+                </div>
+
+                <h2
+                    class="font-semibold text-xl mb-2 tracking-wide text-gray-100 group-hover:text-[#fef3c7] transition-colors duration-300">
+                    Work
+                </h2>
+                <p class="font-thin text-gray-300 leading-relaxed">
+                    Web Developer / Freelancer
+                </p>
+            </div>
+        </div>
+
+        <!-- Web Developer Description -->
+        <div
+            class="relative z-10 mt-20 max-w-4xl mx-auto text-center bg-gradient-to-b from-[#111] to-black border border-[#3a2d1f] rounded-2xl p-10 shadow-lg hover:shadow-amber-600/30 transition-all duration-500">
+
+            <h2 class="text-2xl font-semibold text-amber-500 mb-4 tracking-wide">
+                Web Development Journey
+            </h2>
+
+            <p class="text-gray-300 leading-relaxed text-lg">
+                I am a passionate web developer focused on building modern, responsive, and user-friendly
+                websites and web applications. I specialize in transforming ideas into clean digital
+                experiences using HTML, CSS, JavaScript, and modern frameworks like Tailwind, React, and Vue.
+                My goal is to design interfaces that are visually appealing, fast, and intuitive while
+                continuously learning new technologies to improve my craft.
+            </p>
+
+            <p class="mt-4 text-gray-400 text-sm italic">
+                “Code is not just logic — it’s creativity in motion.”
+            </p>
+        </div>
+    </section>
+
+
+
+    <!-- WORK SECTION -->
+    <section id="work"
+        class="max-w-8xl mx-auto mt-20 px-5 md:px-10 lg:px-20 py-20 bg-gradient-to-b from-black via-neutral-900 to-black text-white relative overflow-hidden">
+
+        <h1 class="text-center font-bold text-3xl font-mono mb-12 tracking-widest text-amber-600">
+            <span class="text-white">|</span> My Work.
+        </h1>
+
+        <div class="overflow-hidden relative">
+            <!-- track -->
+            <div id="carousel-track" class="flex gap-8 transition-transform duration-1000 ease-linear">
+
+                <!-- CARD -->
+                <div
+                    class="card min-w-[300px] md:min-w-[350px] lg:min-w-[400px] group relative overflow-hidden rounded-2xl border border-amber-800/40 bg-gradient-to-b from-neutral-900 to-black shadow hover:shadow-amber-600/60 transition-all">
+                    <img src="Area.png"
+                        class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110" />
+                    <div
+                        class="absolute inset-0 bg-gradient-to-t from-black via-black/80 to-transparent opacity-0 group-hover:opacity-100 flex items-end p-6 transition">
+                        <p class="text-amber-400 font-semibold">Area Project</p>
+                    </div>
+                </div>
+
+                <div
+                    class="card min-w-[300px] md:min-w-[350px] lg:min-w-[400px] group relative overflow-hidden rounded-2xl border border-amber-800/40 bg-gradient-to-b from-neutral-900 to-black shadow hover:shadow-amber-600/60 transition-all">
+                    <img src="bootstrap.png"
+                        class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110" />
+                    <div
+                        class="absolute inset-0 bg-gradient-to-t from-black via-black/80 to-transparent opacity-0 group-hover:opacity-100 flex items-end p-6 transition">
+                        <p class="text-amber-400 font-semibold">Styles in Bootstrap</p>
+                    </div>
+                </div>
+
+                <div
+                    class="card min-w-[300px] md:min-w-[350px] lg:min-w-[400px] group relative overflow-hidden rounded-2xl border border-amber-800/40 bg-gradient-to-b from-neutral-900 to-black shadow hover:shadow-amber-600/60 transition-all">
+                    <img src="coff.png"
+                        class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110" />
+                    <div
+                        class="absolute inset-0 bg-gradient-to-t from-black via-black/80 to-transparent opacity-0 group-hover:opacity-100 flex items-end p-6 transition">
+                        <p class="text-amber-400 font-semibold">Coffee Project</p>
+                    </div>
+                </div>
+
+                <div
+                    class="card min-w-[300px] md:min-w-[350px] lg:min-w-[400px] group relative overflow-hidden rounded-2xl border border-amber-800/40 bg-gradient-to-b from-neutral-900 to-black shadow hover:shadow-amber-600/60 transition-all">
+                    <img src="JustCOffee.png"
+                        class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110" />
+                    <div
+                        class="absolute inset-0 bg-gradient-to-t from-black via-black/80 to-transparent opacity-0 group-hover:opacity-100 flex items-end p-6 transition">
+                        <p class="text-amber-400 font-semibold">COffee Project</p>
+                    </div>
+                </div>
+
+                <div
+                    class="card min-w-[300px] md:min-w-[350px] lg:min-w-[400px] group relative overflow-hidden rounded-2xl border border-amber-800/40 bg-gradient-to-b from-neutral-900 to-black shadow hover:shadow-amber-600/60 transition-all">
+                    <img src="coffee blast.png"
+                        class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110" />
+                    <div
+                        class="absolute inset-0 bg-gradient-to-t from-black via-black/80 to-transparent opacity-0 group-hover:opacity-100 flex items-end p-6 transition">
+                        <p class="text-amber-400 font-semibold">Coffee Project</p>
+                    </div>
+                </div>
+
+                <div
+                    class="card min-w-[300px] md:min-w-[350px] lg:min-w-[400px] group relative overflow-hidden rounded-2xl border border-amber-800/40 bg-gradient-to-b from-neutral-900 to-black shadow hover:shadow-amber-600/60 transition-all">
+                    <img src="JustShop.png"
+                        class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110" />
+                    <div
+                        class="absolute inset-0 bg-gradient-to-t from-black via-black/80 to-transparent opacity-0 group-hover:opacity-100 flex items-end p-6 transition">
+                        <p class="text-amber-400 font-semibold">Styles to Progress</p>
+                    </div>
+                </div>
+
+                <div
+                    class="card min-w-[300px] md:min-w-[350px] lg:min-w-[400px] group relative overflow-hidden rounded-2xl border border-amber-800/40 bg-gradient-to-b from-neutral-900 to-black shadow hover:shadow-amber-600/60 transition-all">
+                    <img src="L&L.png"
+                        class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110" />
+                    <div
+                        class="absolute inset-0 bg-gradient-to-t from-black via-black/80 to-transparent opacity-0 group-hover:opacity-100 flex items-end p-6 transition">
+                        <p class="text-amber-400 font-semibold">Doors and Lumbers Supplies</p>
+                    </div>
+                </div>
+
+                <div
+                    class="card min-w-[300px] md:min-w-[350px] lg:min-w-[400px] group relative overflow-hidden rounded-2xl border border-amber-800/40 bg-gradient-to-b from-neutral-900 to-black shadow hover:shadow-amber-600/60 transition-all">
+                    <img src="Shoe.png"
+                        class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110" />
+                    <div
+                        class="absolute inset-0 bg-gradient-to-t from-black via-black/80 to-transparent opacity-0 group-hover:opacity-100 flex items-end p-6 transition">
+                        <p class="text-amber-400 font-semibold">Shoe Products</p>
+                    </div>
+                </div>
+
+                <div
+                    class="card min-w-[300px] md:min-w-[350px] lg:min-w-[400px] group relative overflow-hidden rounded-2xl border border-amber-800/40 bg-gradient-to-b from-neutral-900 to-black shadow hover:shadow-amber-600/60 transition-all">
+                    <img src="sample.png"
+                        class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110" />
+                    <div
+                        class="absolute inset-0 bg-gradient-to-t from-black via-black/80 to-transparent opacity-0 group-hover:opacity-100 flex items-end p-6 transition">
+                        <p class="text-amber-400 font-semibold">Products Sample layout</p>
+                    </div>
+                </div>
+
+                <div
+                    class="card min-w-[300px] md:min-w-[350px] lg:min-w-[400px] group relative overflow-hidden rounded-2xl border border-amber-800/40 bg-gradient-to-b from-neutral-900 to-black shadow hover:shadow-amber-600/60 transition-all">
+                    <img src="Figma.png"
+                        class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110" />
+                    <div
+                        class="absolute inset-0 bg-gradient-to-t from-black via-black/80 to-transparent opacity-0 group-hover:opacity-100 flex items-end p-6 transition">
+                        <p class="text-amber-400 font-semibold">Figma Design</p>
+                    </div>
+                </div>
+
+                <div
+                    class="card min-w-[300px] md:min-w-[350px] lg:min-w-[400px] group relative overflow-hidden rounded-2xl border border-amber-800/40 bg-gradient-to-b from-neutral-900 to-black shadow hover:shadow-amber-600/60 transition-all">
+                    <img src="Profile.portfolio.png"
+                        class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110" />
+                    <div
+                        class="absolute inset-0 bg-gradient-to-t from-black via-black/80 to-transparent opacity-0 group-hover:opacity-100 flex items-end p-6 transition">
+                        <p class="text-amber-400 font-semibold">Profile Sample</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- contact section  -->
+
+    <section id="contact"
+        class="max-w-8xl mx-auto mt-20 px-5 md:px-10 lg:px-20 py-20 bg-gradient-to-b from-black via-neutral-900 to-black text-white">
+        <h1 class="text-center font-bold text-4xl font-mono mb-12 tracking-widest text-amber-600">
+            <span class="text-white">|</span> Contact Me
+        </h1>
+
+        <div class="flex flex-wrap justify-center gap-10">
+            <!-- Contact Form -->
+            <div class="w-full md:w-2/3 lg:w-1/2">
+                <form action="#" method="POST"
+                    class="bg-neutral-900 p-10 rounded-xl shadow-[0_0_20px_rgba(139,92,46,0.3)] hover:shadow-[0_0_35px_rgba(139,92,46,0.5)] border border-amber-800/40 transition-shadow duration-300">
+                    <!-- Name Field -->
+                    <div class="mb-6">
+                        <label for="name" class="block text-lg font-medium mb-2 text-amber-600">Your Name</label>
+                        <input type="text" id="name" name="name"
+                            class="w-full p-4 rounded-lg bg-black text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-amber-600 transition duration-200"
+                            placeholder="Name" required />
+                    </div>
+
+                    <!-- Email Field -->
+                    <div class="mb-6">
+                        <label for="email" class="block text-lg font-medium mb-2 text-amber-600">Your Email</label>
+                        <input type="email" id="email" name="email"
+                            class="w-full p-4 rounded-lg bg-black text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-amber-600 transition duration-200"
+                            placeholder="Email" required />
+                    </div>
+
+                    <!-- Message Field -->
+                    <div class="mb-8">
+                        <label for="message" class="block text-lg font-medium mb-2 text-amber-600">Your Message</label>
+                        <textarea id="message" name="message" rows="6"
+                            class="w-full p-4 rounded-lg bg-black text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-amber-600 transition duration-200"
+                            placeholder="Write your message here..." required></textarea>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <button type="submit"
+                        class="w-full py-3 bg-amber-700 text-white rounded-lg hover:bg-amber-600 focus:outline-none focus:ring-2 focus:ring-amber-500 transition duration-300 ease-in-out font-semibold tracking-wide shadow-[0_0_10px_rgba(139,92,46,0.5)] hover:shadow-[0_0_20px_rgba(139,92,46,0.7)]">
+                        Send Message
+                    </button>
+                </form>
+            </div>
+
+            <!-- Contact Info -->
+            <div class="w-full md:w-1/3 lg:w-1/3 flex flex-col items-center justify-center text-center">
+                <p class="text-xl font-medium mb-6 text-gray-300">You can also reach out to me via:</p>
+                <div class="flex justify-center space-x-8 text-gray-400">
+                    <!-- Email Icon -->
+                    <a href="mailto:your-email@example.com"
+                        class="text-gray-400 hover:text-amber-500 transition duration-300 ease-in-out transform hover:scale-110">
+                        <i class="fa-solid fa-envelope text-3xl"></i>
+                    </a>
+                    <!-- Phone Icon -->
+                    <a href="tel:+1234567890"
+                        class="text-gray-400 hover:text-amber-500 transition duration-300 ease-in-out transform hover:scale-110">
+                        <i class="fa-solid fa-phone text-3xl"></i>
+                    </a>
+                    <!-- LinkedIn Icon -->
+                    <a href="https://www.linkedin.com/in/your-linkedin"
+                        class="text-gray-400 hover:text-amber-500 transition duration-300 ease-in-out transform hover:scale-110">
+                        <i class="fa-brands fa-linkedin text-3xl"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-black text-white py-10 border-t border-amber-800/40">
+        <div class="max-w-8xl mx-auto px-5 md:px-10 lg:px-20">
+            <div class="flex flex-wrap justify-between items-center">
+                <!-- Logo / Brand Name -->
+                <div class="text-3xl font-mono font-bold">
+                    <span class="text-amber-600">JustBern</span>
+                </div>
+
+                <!-- Social Media Links -->
+                <div class="flex space-x-6 mt-4 md:mt-0">
+                    <a href="https://www.linkedin.com/in/your-linkedin" target="_blank"
+                        class="text-gray-400 hover:text-amber-500 transition duration-300 ease-in-out transform hover:scale-110">
+                        <i class="fab fa-linkedin text-2xl"></i>
+                    </a>
+                    <a href="https://github.com/your-github" target="_blank"
+                        class="text-gray-400 hover:text-amber-500 transition duration-300 ease-in-out transform hover:scale-110">
+                        <i class="fab fa-github text-2xl"></i>
+                    </a>
+                    <a href="mailto:your-email@example.com"
+                        class="text-gray-400 hover:text-amber-500 transition duration-300 ease-in-out transform hover:scale-110">
+                        <i class="fas fa-envelope text-2xl"></i>
+                    </a>
+                    <a href="https://www.instagram.com/your-instagram" target="_blank"
+                        class="text-gray-400 hover:text-amber-500 transition duration-300 ease-in-out transform hover:scale-110">
+                        <i class="fab fa-instagram text-2xl"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div
+                class="flex flex-col md:flex-row justify-between items-center mt-10 text-sm text-gray-400 border-t border-dashed border-amber-700/40 pt-6">
+                <div class="text-center md:text-left">
+                    <p>&copy; 2025 <span class="text-amber-600 font-semibold">JustBern</span>. All Rights Reserved.</p>
+                </div>
+                <div class="text-center mt-4 md:mt-0">
+                    <a href="#contact" class="hover:text-amber-500 transition duration-300">Contact</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+
+
+    <script>
+        // Mobile menu toggle functionality
+        const menuToggle = document.getElementById('menu-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        menuToggle.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // SKILL SECTION
+        const circles = document.querySelectorAll(".skill-progress");
+        const counters = document.querySelectorAll(".skill-counter");
+
+        function animateSkills() {
+            circles.forEach((circle, i) => {
+                const percent = circle.dataset.percent;
+                const radius = 40;
+                const circumference = 2 * Math.PI * radius;
+                const offset = circumference - (percent / 100) * circumference;
+
+                circle.style.transition = "stroke-dashoffset 1.5s ease";
+                circle.style.strokeDashoffset = offset;
+
+                let count = 0;
+                const interval = setInterval(() => {
+                    if (count >= percent) {
+                        clearInterval(interval);
+                    } else {
+                        count++;
+                        counters[i].innerText = count + "%";
+                    }
+                }, 20);
+            });
+        }
+
+        const skillsSection = document.getElementById("skills");
+
+        const observer = new IntersectionObserver(entries => {
+            if (entries[0].isIntersecting) {
+                animateSkills();
+                observer.disconnect();
+            }
+        });
+
+        observer.observe(skillsSection);
+
+        // WORK SECTIOn
+
+        const track = document.getElementById("carousel-track");
+        const cards = document.querySelectorAll(".card");
+
+        let index = 0;
+        let autoSlide;
+        let cardWidth = cards[0].offsetWidth + 32; // includes gap-8
+
+        function startAutoSlide() {
+            autoSlide = setInterval(() => {
+                index++;
+                if (index >= cards.length) index = 0;
+                track.style.transform = `translateX(-${index * cardWidth}px)`;
+            }, 3500); // slow movement
+        }
+
+        function stopAutoSlide() {
+            clearInterval(autoSlide);
+        }
+
+        // start
+        startAutoSlide();
+
+        // pause on hover
+        track.addEventListener("mouseenter", stopAutoSlide);
+        track.addEventListener("mouseleave", startAutoSlide);
+
+        // pause on touch
+        track.addEventListener("touchstart", stopAutoSlide);
+        track.addEventListener("touchend", startAutoSlide);
+
+        // recalc on resize
+        window.addEventListener("resize", () => {
+            cardWidth = cards[0].offsetWidth + 32;
+        });
+
+    </script>
+
+
+</body>
+
+</html>
